@@ -36,7 +36,7 @@ public class MemberService {
 
         Member findMember = optionalMember.get();
 
-        return new MemberResponseDto(findMember.getUsername(), findMember.getAge());
+        return new MemberResponseDto(id, findMember.getUsername(), findMember.getAge());
     }
 
     @Transactional

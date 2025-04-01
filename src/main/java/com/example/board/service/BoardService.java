@@ -40,7 +40,7 @@ public class BoardService {
         Board findBoard = boardRepository.findByIdOrElseThrow(id);
         Member writer = findBoard.getMember();
 
-        return new BoardWithAgeResponseDto(findBoard.getTitle(), findBoard.getContents(), writer.getAge());
+        return new BoardWithAgeResponseDto(id,findBoard.getTitle(), findBoard.getContents(), writer.getAge());
     }
 
     public void delete(Long id) {
