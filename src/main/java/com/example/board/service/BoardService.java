@@ -8,6 +8,8 @@ import com.example.board.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardService {
@@ -25,5 +27,10 @@ public class BoardService {
         Board saveBoard = boardRepository.save(board);
 
         return new BoardResponseDto(saveBoard.getId(), saveBoard.getTitle(), saveBoard.getContents());
+    }
+
+    public List<BoardResponseDto> findAll() {
+
+        return boardRepository.findAll().stream().map(BoardResponseDto::toDto).toList();
     }
 }
